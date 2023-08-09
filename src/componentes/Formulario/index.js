@@ -5,27 +5,21 @@ import ListaSuspensa from '../ListaSuspensa'
 import './Formulario.css'
 
 
-const Formulario = () => {
+const Formulario = (props) => {
 
-    const Times = [
-        'Programação',
-        'Front-End',
-        'Data Science', 
-        'Dev Ops',
-        'UX',
-        'Mobile',
-        'Inovação e Gestão'
-    ]
-
-
-
+    
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
 
     const onSalvar = (evento)=> {
         evento.preventDefault()
-        console.log("Form foi submetido", nome, cargo, imagem)
+        props.onColaboradorCadastrado({
+            nome,
+            cargo,
+            imagem,
+            Times
+        })
     }
 
     return (
@@ -52,7 +46,7 @@ const Formulario = () => {
                     valor={imagem}
                     aoAlterado={valor => setImagem(valor)}
                 />
-                <ListaSuspensa obrigatorio={true} label ="Time" itens={Times}/>
+                <ListaSuspensa obrigatorio={true} label ="Time" itens={props.times}/>
                 <Botao >Criar Card</Botao>
             </form>
         </section>
