@@ -5,12 +5,12 @@ const Colaborador = (props)=> {
     return(
         <div className='colaborador'>
             <div className='cabecalho'>
-                <img src='../logo192.png'/>
+                <img src={props.imagem} alt='ok'/>
 
             </div>
             <div className='rodape'>
-            <h4>Rayanne</h4>
-            <h5>Desenvolvedor</h5>
+            <h4>{props.nome}</h4>
+            <h5>{props.cargo}</h5>
 
             </div>
 
