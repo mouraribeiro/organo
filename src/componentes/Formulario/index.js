@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Botao from '../Botao'
 import CampoTexto from '../CampoTexto'
 import ListaSuspensa from '../ListaSuspensa'
+
 import './Formulario.css'
 
 
@@ -11,6 +12,7 @@ const Formulario = (props) => {
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
+    const [time, setTime] = useState('')
 
     const onSalvar = (evento)=> {
         evento.preventDefault()
@@ -18,7 +20,7 @@ const Formulario = (props) => {
             nome,
             cargo,
             imagem,
-            Times
+            time
         })
     }
 
@@ -46,7 +48,14 @@ const Formulario = (props) => {
                     valor={imagem}
                     aoAlterado={valor => setImagem(valor)}
                 />
-                <ListaSuspensa obrigatorio={true} label ="Time" itens={props.times}/>
+                <ListaSuspensa 
+                    obrigatorio={true}
+                    label ="Time" 
+                    itens={props.times}
+                    valor={time}
+                    aoAlterado={valor => setTime(valor)}
+
+                />
                 <Botao >Criar Card</Botao>
             </form>
         </section>
