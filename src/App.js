@@ -5,7 +5,6 @@ import Formulario from './componentes/Formulario';
 import Time from './componentes/Time';
 
 
-
 function App() {
   const times = [
     {
@@ -46,10 +45,11 @@ function App() {
   ]
   
 
-  const [colaboradores, setColaboradores] = useState([])
+  const [colaboradores, setColaborador] = useState([])
   const aoNovoColaboradorAdicionado = (colaborador)=> {
+    debugger
     console.log(colaborador)
-    setColaboradores([...colaboradores,colaborador])
+    setColaborador([...colaboradores,colaborador])
   }
 
   return (
@@ -61,17 +61,13 @@ function App() {
         key={time.nome} 
         nome={time.nome} 
         corPrimaria={time.corPrimaria} 
-        corSecundaria={time.corSecundaria} 
+        corSecundaria={time.corSecundaria}
         colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
-      
-
         />)}
-                         
+      
 
     </div>
   );
 }
 
 export default App;
-
-
